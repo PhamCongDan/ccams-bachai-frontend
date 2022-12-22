@@ -6,7 +6,7 @@ export const SelectBoxItem = (props) => {
     changeSelection(value)
   }
   return (
-    <button onClick={() => onchange(value)} className='w-full block py-2 px-4 hover:bg-gray-100 text-left'>
+    <button onClick={() => onchange(value)} className='w-full bg-white z-20 block py-2 px-4 hover:bg-gray-100 text-left'>
       {name}
     </button>
   )

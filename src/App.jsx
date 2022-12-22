@@ -1,17 +1,18 @@
 import './App.css';
 import { Header } from './components/Header';
-import { FilterLayout } from './components/FilterLayout';
+import { store } from "./store";
+import { Provider } from 'react-redux';
+import { MainLayout } from './components/MainLayout';
 
 function App() {
+
   return (
-    <div className="App">
-      <Header />
-      <main className='p-4'>
-        <div className=''>
-          <FilterLayout />
-        </div>
-      </main>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Header />
+        <MainLayout />
+      </div>
+    </Provider>
   );
 }
 
