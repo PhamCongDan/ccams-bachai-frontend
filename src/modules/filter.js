@@ -1,4 +1,4 @@
-import api from '../api'
+import { api } from '../api'
 import { APP_UPDATE_STATUS } from './app';
 
 const initialState = {
@@ -21,7 +21,7 @@ export function getGrade(id) {
       type: APP_UPDATE_STATUS,
       payload: { isLoading: true }
     })
-    return api.get(`${process.env.REACT_APP_API_URL}/v1/unit/${id}`)
+    return api.get(`unit/${id}`)
       .then(data => {
         if (data.length > 1) data.push({ name: 'Tất cả', id: data.map(x => x.id).toString() })
         return dispatch({
@@ -44,7 +44,7 @@ export function getClass(id) {
       type: APP_UPDATE_STATUS,
       payload: { isLoading: true }
     })
-    return api.get(`${process.env.REACT_APP_API_URL}/v1/grade`, {
+    return api.get(`grade`, {
       params: {
         unitIds: id
       }})

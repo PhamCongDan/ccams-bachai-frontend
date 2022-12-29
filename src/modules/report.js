@@ -1,4 +1,4 @@
-import api from '../api'
+import { api } from '../api'
 import { downloadFileService } from '../ultils';
 import { APP_UPDATE_STATUS } from './app';
 
@@ -21,7 +21,7 @@ export function getReportByClass(request) {
       type: APP_UPDATE_STATUS,
       payload: { isLoading: true }
     })
-    return api.post(`${process.env.REACT_APP_API_URL}/v1/attendance`, {
+    return api.post(`attendance`, {
       ...request
     }).then(res => {
       const lstData = res.sort((a, b) => {
@@ -49,7 +49,7 @@ export function downloadReportByClass(request) {
       payload: { isLoading: true }
     })
     return api.post(
-      `${process.env.REACT_APP_API_URL}/v1/attendance/export`, { ...request},
+      `attendance/export`, { ...request},
         { responseType: 'arraybuffer'
       }).then(res => {
         downloadFileService(res, `Report ${request.startDate} _ ${request.endDate}`, 'EXCEL')
