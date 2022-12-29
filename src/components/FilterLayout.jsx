@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { SelectBox } from './common/SelectBox'
 import { SelectBoxItem } from './common/SelectBoxItem'
 import DatePicker, { DateObject } from "react-multi-date-picker"
 import { useDispatch, useSelector } from 'react-redux'
 import * as filterAction from '../modules/filter'
+import * as reportAction from '../modules/report'
 
 export const FilterLayout = () => {
   const [activeUnit, setActiveUnit] = useState('');
@@ -38,12 +39,37 @@ export const FilterLayout = () => {
   const startDate = useMemo(() => getStartDate(rangeDate), [rangeDate])
   const endDate = useMemo(() => getEndDate(rangeDate), [rangeDate])
 
+  const getRequestParam = () => {
+    let gradeIds = [];
+    if (activeClass === 'all') {
+      gradeIds = className
+        .filter(item => Number(item.id))
+        .map(item => item.id);
+    } else {
+      gradeIds.push(activeClass)
+    }
+    return gradeIds
+  }
   const handleSearch = () => {
-    console.log({
-      class: activeClass,
-      startDate: startDate,
-      endDate: endDate
-    });
+    const gradeIds = getRequestParam();
+
+    // call api
+    dispatch(reportAction.getReportByClass({
+      gradeIds,
+      startDate,
+      endDate
+    }))
+  }
+
+  const downloadReport = () => {
+    const gradeIds = getRequestParam();
+
+    // call api
+    dispatch(reportAction.downloadReportByClass({
+      gradeIds,
+      startDate,
+      endDate
+    }))
   }
 
   return (
@@ -87,15 +113,24 @@ export const FilterLayout = () => {
         onChange={setRangeDate}
         format='DD/MM/YYYY'
       />
-      <div>
-        <button
-          type="button" 
-          className="w-full text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 transition ease-in-out"
-          onClick={handleSearch}
-        >
-          Tìm
-        </button>
-      </div>
+      <button
+        type="button" 
+        disabled={!activeClass}
+        className="w-full text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 transition ease-in-out"
+        onClick={handleSearch}
+      >
+        Tìm
+      </button>
+
+      <button
+        type="button" 
+        disabled={!activeClass}
+        className="w-full text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 transition ease-in-out"
+        onClick={downloadReport}
+      >
+        Download Report
+      </button>
+
     </div>
   )
 }

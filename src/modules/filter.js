@@ -49,6 +49,7 @@ export function getClass(id) {
         unitIds: id
       }})
       .then(data => {
+        if (data.length > 1) data.push({ name: 'Tất cả', id: 'all' })
         return dispatch({
           type: FILTER_UPDATE_STATUS,
           payload: { class: data }
