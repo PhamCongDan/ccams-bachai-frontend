@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  app:
+    image: danpc28/ccams-web:latest
+    ports:
+      - "80:80"
+    restart: unless-stopped
