@@ -4,3 +4,4 @@ build
 Dockerfile
 .git
 .vscode
+!dist/

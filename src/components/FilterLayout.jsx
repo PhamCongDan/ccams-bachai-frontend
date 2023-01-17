@@ -130,7 +130,6 @@ export const FilterLayout = () => {
       >
         Download Report
       </button>
-
     </div>
   )
 }
