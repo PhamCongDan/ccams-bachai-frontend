@@ -16,6 +16,7 @@ export const FilterLayout = () => {
   ])
   const grade = useSelector(({ filterReducers }) => filterReducers.grade)
   const className = useSelector(({ filterReducers }) => filterReducers.class)
+  const reporter = useSelector(({ reportReducers }) => reportReducers.report)
   const dispatch = useDispatch(null)
 
   const changeUnit = (value) => {
@@ -88,9 +89,6 @@ export const FilterLayout = () => {
           {grade.map((item) => {
             return (<SelectBoxItem name={item.name} value={item.id} key={item.id} changeSelection={changeGrade} />)
           })}
-          {/* {unit.length > 0 &&
-            <SelectBoxItem name='Tất cả' value={unit.map(x => x.id).toString()} changeSelection={changeUnit} /> 
-          } */}
         </SelectBox>
       </div>
       <div className='w-full'>
@@ -98,9 +96,6 @@ export const FilterLayout = () => {
           {className.map((item) => {
             return (<SelectBoxItem name={item.name} value={`${item.id}`} key={item.id} changeSelection={setActiveClass} />)
           })}
-          {/* {grade.length > 0 &&
-            <SelectBoxItem name='Tất cả' value={grade.map(x => x.id).toString()} changeSelection={setActiveGrade} /> 
-          } */}
         </SelectBox>
       </div>
       <DatePicker
@@ -109,6 +104,7 @@ export const FilterLayout = () => {
         range
         numberOfMonths={2}
         maxDate={new Date()}
+        minDate={new Date().setMonth(new Date().getMonth() - 3)}
         value={rangeDate}
         onChange={setRangeDate}
         format='DD/MM/YYYY'
@@ -130,6 +126,10 @@ export const FilterLayout = () => {
       >
         Download Report
       </button>
+      <div className='hidden md:block' />
+      <div className='hidden md:block' />
+      <div className='md:text-end'>GLV phụ trách:</div>
+      <div className='md:text-end font-bold'>{reporter.length ? reporter[0]?.teacher : ''}</div>
     </div>
   )
 }

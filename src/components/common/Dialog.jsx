@@ -4,7 +4,6 @@ export const Dialog = (props) => {
   const { isShow, closeModal, children } = props;
 
   const clickOutside = () => {
-    console.log('clicked outside');
     closeModal();
   }
 

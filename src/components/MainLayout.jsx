@@ -7,7 +7,7 @@ import { ReportLayout } from "./ReportLayout";
 export const MainLayout = () => {
   const isLoading = useSelector(({ appReducers }) => appReducers.isLoading)
   return (
-    <main className="p-4">
+    <main className="p-4 container m-auto">
       <div className="">
         <FilterLayout />
         <ReportLayout />

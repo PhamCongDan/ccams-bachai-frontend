@@ -5,45 +5,17 @@ import { StudentCardItem } from './StudentCardItem';
 export const StudentCardModal = (props) => {
   const { isShow, closeModal } = props;
   const printStudentCard = () => {
-    var printContents = document.getElementById('student-card-page');
-    closeModal();
-     var originalContents = document.body.innerHTML;
-    printContents.scrollTop = 100;
-    // document.body.innerHTML = printContents;
     window.print();
-    //  document.body.innerHTML = originalContents;
-    // const printContents = document.getElementById('student-card-page').innerHTML;
-    // // const originalContents = document.body.innerHTML;
-    // const printArea = window.open()
-    // printArea.document.write(printContents.html())
-    // printArea.print();
-    // // document.body.innerHTML = printContents;
-    // // window.print();
-    // // document.body.innerHTML = originalContents;
-    // const prtContent = document.getElementById('student-card-page');
-    // console.log(prtContent);
-    // const winPrint = window.open('search', 'search', 'left=0,top=0,width=3000,height=3000,toolbar=0,scrollbars=0,status=0');
-    // // winPrint.document.write(prtContent.innerHTML);
-    // winPrint.document.write('<html><head><title>Print Me</title>');
-    // winPrint.document.write('<link rel="stylesheet" type="text/css" href="./styles/print.css" media="print" /></head>')
-    // winPrint.document.write('<body onafterprint="self.close()">');
-    // winPrint.document.write(prtContent.innerHTML);
-    // winPrint.document.write('<button>print</button>')
-    // winPrint.document.write('</body></html>');
-    // console.log(winPrint.document);
-    // winPrint.document.close();
-    // winPrint.print();
-    // winPrint.close();
   }
   const lstStudentCard = [
     {
-      id: '1',
+      id: '2018130',
       name: 'Pham Cong Dan',
       attentClass: 'A18',
       phoneNumber: '0345202984'
     },
     {
-      id: '2',
+      id: '2018136',
       name: 'Pham Cong Dan',
       attentClass: 'A18',
       phoneNumber: '0345202984'
@@ -114,8 +86,15 @@ export const StudentCardModal = (props) => {
       <div className='p-4 bg-slate-50 h-full mb-4'>
         <div className='print-preview'>
           <label>In thẻ học viên</label>
-          <p>Preview:</p>
-          <button onClick={printStudentCard}>print</button>
+          <div className='flex items-center justify-between my-2'>
+            <p>Preview:</p>
+            <button
+              className='text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 transition ease-in-out'
+              onClick={printStudentCard}
+            >
+              Print
+            </button>
+          </div>
         </div>
         {/* print area */}
         <div className='h-[90%] w-max overflow-y-scroll m-auto'>
