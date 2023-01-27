@@ -1,21 +1,35 @@
-import React from 'react'
+import React from "react";
 
 export const ItemStudent = (props) => {
   const { student, index } = props;
-  const { holyName, lastName, firstName, gradeName,
-    attendClass, sunday, weekDay, id } = student;
+  const {
+    holyName,
+    lastName,
+    firstName,
+    gradeName,
+    attendClass,
+    sunday,
+    weekDay,
+    id,
+  } = student;
   return (
-    <div className="grid grid-cols-12 p-1 min-w-[800px]">
-      <div className="col-span-1">{index + 1}</div>
-      <div className="col-span-1">{holyName}</div>
-      <div className="col-span-3">{lastName}</div>
-      <div className="col-span-1">{firstName}</div>
-      <div className="col-span-1">{gradeName}</div>
-      <div className="col-span-1 text-center">{attendClass}</div>
-      <div className="col-span-1 text-center">{sunday}</div>
-      <div className="col-span-1 text-center">{weekDay}</div>
-      <div className="col-span-1 text-center">{weekDay + sunday}</div>
-      <div className="col-span-1 text-center">{id}</div>
-    </div>
-  )
-}
+
+      <tr className="bg-white border-b ">
+        <th
+          scope="row"
+          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+        >
+          {index + 1}
+        </th>
+        <td className="px-6">{id}</td>
+        <td className="px-6">{holyName}</td>
+        <td className="px-6">{lastName}</td>
+        <td className="px-6">{firstName}</td>
+        <td className="px-6 text-center">{gradeName}</td>
+        <td className="px-6 text-center">{attendClass}</td>
+        <td className="px-6 text-center">{sunday}</td>
+        <td className="px-6 text-center">{weekDay}</td>
+        <td className="px-6 text-center">{weekDay + sunday}</td>
+      </tr>
+  );
+};

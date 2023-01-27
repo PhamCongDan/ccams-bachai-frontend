@@ -7,21 +7,48 @@ export const ReportLayout = () => {
 
   return (
     <div className="overflow-hidden mt-4">
-      <div className="m-auto border p-4 overflow-auto max-h-[500px]">
-        <div className="grid grid-cols-12 p-1 min-w-[800px]">
-          <div className="col-span-1">STT</div>
-          <div className="col-span-1">Tên Thánh</div>
-          <div className="col-span-3">Họ</div>
-          <div className="col-span-1">Tên</div>
-          <div className="col-span-1">Chi đoàn</div>
-          <div className="col-span-1 text-center">Học GL</div>
-          <div className="col-span-1 text-center">Lễ CN</div>
-          <div className="col-span-1 text-center">Lễ thường</div>
-          <div className="col-span-1 text-center">Tổng lễ</div>
-        </div>
-        {reportData.map((item, index) => {
-          return <ItemStudent key={item.id} student={item} index={index} />;
-        })}
+      <div className="relative overflow-x-auto border">
+        <table className="w-full text-md text-left text-gray-500 ">
+          <thead className="text-sm text-gray-700 uppercase bg-gray-50">
+            <tr className="sticky top-0">
+              <th scope="col" className="px-6 py-3">
+                STT
+              </th>
+              <th scope="col" className="px-6 py-3">
+                ID
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Tên thánh
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Họ
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Tên
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Chi Đoàn
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Học GL
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Lễ CN
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Lễ thường
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Tổng lễ
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {reportData.map((item, index) => {
+              return <ItemStudent key={item.id} student={item} index={index} />;
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );
