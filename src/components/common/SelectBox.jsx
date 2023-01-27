@@ -23,8 +23,8 @@ export const SelectBox = (props) => {
       </button>
       {isShow && (
         <>
-          <div className="fixed top-0 left-0 right-0 bottom-0 " onClick={toggleSelectBox}></div>
-          <div className="absolute w-full border-4 rounded-md z-10" onClick={toggleSelectBox}>{children}</div>
+          <div className="fixed top-0 left-0 right-0 bottom-0 z-10" onClick={toggleSelectBox}></div>
+          <div className="absolute w-full border-4 rounded-md z-20" onClick={toggleSelectBox}>{children}</div>
         </>
       )}
     </div>

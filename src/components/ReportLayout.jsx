@@ -7,8 +7,8 @@ export const ReportLayout = () => {
 
   return (
     <div className="overflow-hidden mt-4">
-      <div className="relative overflow-x-auto border">
-        <table className="w-full text-md text-left text-gray-500 ">
+      <div className="overflow-x-auto border">
+        <table className="relative w-full text-md text-left text-gray-500 z-0">
           <thead className="text-sm text-gray-700 uppercase bg-gray-50">
             <tr className="sticky top-0">
               <th scope="col" className="px-6 py-3">

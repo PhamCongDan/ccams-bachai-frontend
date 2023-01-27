@@ -1,0 +1,21 @@
+@media print {
+  header, button {
+    display: none !important;
+    height: 0;
+  }
+
+  .print-preview {
+    display: none !important;
+  }
+  .print-area {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    page-break-before: always;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}

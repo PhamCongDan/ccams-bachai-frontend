@@ -23,7 +23,8 @@ export function getGrade(id) {
     })
     return api.get(`unit/${id}`)
       .then(data => {
-        if (data.length > 1) data.push({ name: 'Tất cả', id: data.map(x => x.id).toString() })
+        // comment this for production
+        // if (data.length > 1) data.push({ name: 'Tất cả', id: data.map(x => x.id).toString() })
         return dispatch({
           type: FILTER_UPDATE_STATUS,
           payload: { grade: data }
@@ -49,7 +50,8 @@ export function getClass(id) {
         unitIds: id
       }})
       .then(data => {
-        if (data.length > 1) data.push({ name: 'Tất cả', id: 'all' })
+        // comment this for production
+        // if (data.length > 1) data.push({ name: 'Tất cả', id: 'all' })
         return dispatch({
           type: FILTER_UPDATE_STATUS,
           payload: { class: data }
