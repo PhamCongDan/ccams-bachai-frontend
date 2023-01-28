@@ -6,6 +6,7 @@ import { StudentCardItem } from './StudentCardItem';
 export const StudentCardModal = (props) => {
   const { isShow, closeModal } = props;
   const printStudentCard = () => {
+    window.onafterprint = () => console.log('printed')
     window.print();
   }
   const lstStudentCard = [
@@ -109,8 +110,8 @@ export const StudentCardModal = (props) => {
         </div>
         {/* print area */}
         <div className='h-[80%] w-max overflow-y-scroll m-auto'>
-          <div id='student-card-page' className='w-[210mm] h-[297mm] bg-white'>
-            <div className='print-area grid grid-cols-2 grid-rows-5 grid-flow-col gap-4 px-14'>
+          <div id='student-card-page' className='print-area w-[210mm] h-[297mm] bg-white'>
+            <div className=' grid grid-cols-2 grid-rows-5 grid-flow-col gap-4 px-14'>
               {lstStudentCard.map((item, index) => {
                 return (
                   <StudentCardItem key={item.id} studentInfo={item} />

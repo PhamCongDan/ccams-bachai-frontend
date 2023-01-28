@@ -1,9 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ItemStudent } from "./ItemStudent";
+import * as reportAction from '../modules/report';
 
-export const ReportLayout = () => {
+const ReportLayout = () => {
   const reportData = useSelector(({ reportReducers }) => reportReducers.report);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('render');
+    dispatch(reportAction.reportUpdateStatus({
+      report: []
+    }))
+  }, [dispatch]);
 
   return (
     <div className="overflow-hidden mt-4">
@@ -53,3 +63,5 @@ export const ReportLayout = () => {
     </div>
   );
 };
+
+export default React.memo(ReportLayout);
