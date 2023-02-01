@@ -1,10 +1,14 @@
 import { debounce } from "debounce";
 import React, { useCallback, useState } from "react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { BaseIcon, IconSearch } from "../icon";
 import { StudentCardModal } from "./StudentCardModal";
+import { StudentTable } from "./StudentTable";
+import * as studentAction from '../../modules/student'
 
 const SearchStudent = () => {
+  const dispatch = useDispatch();
   const [isShowDialog, setIsShowDialog] = useState(false);
   const [isShowPrintList, setIsShowPrintList] = useState(false);
   const [strSearch, setStrSearch] = useState('');
@@ -27,13 +31,13 @@ const SearchStudent = () => {
 
   const queryStudent = useCallback(() => {
     // call api
-    console.log(strSearch);
-  }, [strSearch]);
+    dispatch(studentAction.searchStudent({
+      name: strSearch
+    }))
+  }, [strSearch, dispatch]);
 
   useEffect(() => {
-    if (strSearch.length > 3) {
-      queryStudent();
-    }
+    queryStudent();
   }, [strSearch, queryStudent]);
 
   return (
@@ -58,7 +62,7 @@ const SearchStudent = () => {
               type="search"
               id="search"
               className="block w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
-              placeholder="Họ tên"
+              placeholder="Họ tên không dấu"
               required
               onChange={(e) => changeSearch(e.target.value)}
             />
@@ -69,6 +73,7 @@ const SearchStudent = () => {
               Search
             </button> */}
           </div>
+          <StudentTable />
         </div>
         <div className={`${isShowPrintList ? "col-span-1" : "hidden"}`}>
           <button
