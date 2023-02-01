@@ -9,7 +9,6 @@ const ReportLayout = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('render');
     dispatch(reportAction.reportUpdateStatus({
       report: []
     }))

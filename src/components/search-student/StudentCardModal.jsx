@@ -1,88 +1,22 @@
 import React from 'react'
-import { Dialog } from '../common/Dialog'
+import { useSelector } from 'react-redux';
+import Dialog from '../common/Dialog'
 import { BaseIcon, IconClose, IconPrint } from '../icon';
 import { StudentCardItem } from './StudentCardItem';
 
 export const StudentCardModal = (props) => {
   const { isShow, closeModal } = props;
   const printStudentCard = () => {
-    window.onafterprint = () => console.log('printed')
     window.print();
-  }
-  const lstStudentCard = [
-    {
-      id: '2018130',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '2018136',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '3',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '4',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '5',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '6',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '7',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '8',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '9',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    {
-      id: '10',
-      name: 'Pham Cong Dan',
-      attentClass: 'A18',
-      phoneNumber: '0345202984'
-    },
-    // {
-    //   id: '11',
-    //   name: 'Pham Cong Dan',
-    //   attentClass: 'A18',
-    //   phoneNumber: '0345202984'
-    // },
-    // {
-    //   id: '12',
-    //   name: 'Pham Cong Dan',
-    //   attentClass: 'A18',
-    //   phoneNumber: '0345202984'
-    // },
-  ]
+  };
+  const lstPrintCard = useSelector(({ studentReducers }) => studentReducers.lstPrintCard);
+
+  // useEffect(() => {
+  //   window.addEventListener('afterprint', clearData)
+  //   return () => {
+  //     window.removeEventListener('afterprint', clearData, true);
+  //   }
+  // }, [clearData]);
   return (
     <Dialog isShow={isShow} closeModal={closeModal}>
       <div className='bg-slate-50 h-full mb-4'>
@@ -111,8 +45,8 @@ export const StudentCardModal = (props) => {
         {/* print area */}
         <div className='h-[80%] w-max overflow-y-scroll m-auto'>
           <div id='student-card-page' className='print-area w-[210mm] h-[297mm] bg-white'>
-            <div className=' grid grid-cols-2 grid-rows-5 grid-flow-col gap-4 px-14'>
-              {lstStudentCard.map((item, index) => {
+            <div className=' grid grid-cols-2 grid-rows-5 grid-flow-col gap-4 px-[15mm]'>
+              {lstPrintCard.map((item, index) => {
                 return (
                   <StudentCardItem key={item.id} studentInfo={item} />
                 )

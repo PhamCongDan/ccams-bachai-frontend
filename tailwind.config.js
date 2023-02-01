@@ -7,7 +7,15 @@ module.exports = {
     extend: {
       fontFamily: {
         'serif': ['Times New Roman']
-      }
+      },
+      width: {
+        sm: '300px',
+        md: '1200px'
+      },
+      height: {
+        sm: '200px',
+        md: '800px',
+      },
     },
   },
   plugins: [],
