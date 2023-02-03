@@ -85,14 +85,14 @@ export const FilterLayout = () => {
         </SelectBox>
       </div>
       <div className='w-full'>
-        <SelectBox name="Khối" value={activeGrade} >
+        <SelectBox name="Phân đoàn" value={activeGrade} >
           {grade.map((item) => {
             return (<SelectBoxItem name={item.name} value={item.id} key={item.id} changeSelection={changeGrade} />)
           })}
         </SelectBox>
       </div>
       <div className='w-full'>
-        <SelectBox name="Lớp" value={activeClass} >
+        <SelectBox name="Chi đoàn" value={activeClass} >
           {className.map((item) => {
             return (<SelectBoxItem name={item.name} value={`${item.id}`} key={item.id} changeSelection={setActiveClass} />)
           })}

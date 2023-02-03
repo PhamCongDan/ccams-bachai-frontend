@@ -20,24 +20,24 @@ export const StudentCardItem = (props) => {
       </div>
       <div className='text-center pt-1 font-bold text-[#00008b] text-[16px] whitespace-pre'>{fullName}</div>
       <div className='pl-1 text-[14px] font-serif leading-normal'>
-        <div className='flex'>
-          <label className='flex w-12'>Lớp:</label>
+        <div className='flex gap-2'>
+          <label className=''>Chi đoàn:</label>
           <label className='font-bold'>{grade}</label>
         </div>
-        <div className='flex'>
-          <label className='flex w-12'>Khối:</label>
+        <div className='flex gap-2'>
+          <label className=''>Phân đoàn:</label>
           <label className='font-bold capitalize'>{unit}</label>
         </div>
-        <div className='flex'>
-          <label className='flex w-12'>Mã:</label>
+        <div className='flex gap-2'>
+          <label className=''>Mã:</label>
           <label className='font-bold'>{id}</label>
         </div>
-        <div className='flex'>
-          <label className='flex w-20'>ĐT Liên lạc:</label>
+        <div className='flex gap-2'>
+          <label className='flex'>ĐT Liên lạc:</label>
           <label className='font-bold'>{phoneNumber}</label>
         </div>
-        <div className='flex leading-tight'>
-          <label className='flex w-16'>GL Viên:</label>
+        <div className='flex gap-2 leading-tight'>
+          <label className=''>GL Viên:</label>
           <label className='font-bold'>{teacher} - <br />{teacherPhoneNumber}</label>
         </div>
       </div>
