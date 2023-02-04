@@ -7,7 +7,7 @@ export const StudentCardItem = (props) => {
     teacherPhoneNumber, phoneNumber } } = props;
 
   return (
-    <div className='border border-black w-[86mm] h-[54mm] py-1 px-2 relative'>
+    <div className='m-auto border border-black w-[86mm] h-[54mm] py-1 px-2 relative'>
       {/* 1 cai the co id {id} */}
       <div className='flex justify-between items-center'>
         <img className='rounded-full border border-[#ff0000]' width={48} height={48} alt="" src={logo} />

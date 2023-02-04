@@ -3,24 +3,25 @@ import React, { useCallback, useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BaseIcon, IconSearch } from "../icon";
-import { StudentCardModal } from "./StudentCardModal";
+// import { StudentCardModal } from "./StudentCardModal";
 import { StudentTable } from "./StudentTable";
 import * as studentAction from '../../modules/student'
 import { LstPrintCard } from "./LstPrintCard";
+import { useNavigate } from "react-router-dom";
 
 const SearchStudent = () => {
   const dispatch = useDispatch();
   const printList = useSelector(({ studentReducers }) => studentReducers.lstPrintCard);
-  const [isShowDialog, setIsShowDialog] = useState(false);
+  // const [isShowDialog, setIsShowDialog] = useState(false);
   const [strSearch, setStrSearch] = useState('');
+  const navigate = useNavigate();
+  // const toggleDialog = () => {
+  //   setIsShowDialog(!isShowDialog);
+  // };
 
-  const toggleDialog = () => {
-    setIsShowDialog(!isShowDialog);
-  };
-
-  const closeModal = () => {
-    setIsShowDialog(false);
-  };
+  // const closeModal = () => {
+  //   setIsShowDialog(false);
+  // };
 
   const changeSearch = debounce((e) => {
     setStrSearch(e);
@@ -67,7 +68,7 @@ const SearchStudent = () => {
         <div className={`${"hidden md:block md:col-span-1"}`}>
           <button
             className="text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 transition ease-in-out"
-            onClick={toggleDialog}
+            onClick={() => navigate('/print')}
             disabled={!printList.length}
           >
             Print
@@ -82,7 +83,7 @@ const SearchStudent = () => {
           <LstPrintCard />
         </div>
       </div>
-      <StudentCardModal isShow={isShowDialog} closeModal={closeModal} />
+      {/* <StudentCardModal isShow={isShowDialog} closeModal={closeModal} /> */}
     </>
   );
 };

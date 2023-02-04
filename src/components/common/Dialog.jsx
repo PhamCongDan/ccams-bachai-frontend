@@ -13,8 +13,6 @@ const Dialog = (props) => {
     },
   };
 
-  console.log(typeModal[size]);
-
   const clickOutside = () => {
     closeModal();
   }

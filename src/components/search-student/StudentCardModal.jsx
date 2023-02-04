@@ -1,13 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Dialog from '../common/Dialog'
 import { BaseIcon, IconClose, IconPrint } from '../icon';
 import { StudentCardItem } from './StudentCardItem';
 
 export const StudentCardModal = (props) => {
   const { isShow, closeModal } = props;
+  const navigate = useNavigate();
   const printStudentCard = () => {
-    window.print();
+    navigate('/print')
   };
   const lstPrintCard = useSelector(({ studentReducers }) => studentReducers.lstPrintCard);
 
@@ -44,11 +46,13 @@ export const StudentCardModal = (props) => {
         </div>
         {/* print area */}
         <div className='h-[80%] w-max overflow-y-scroll m-auto'>
-          <div id='student-card-page' className='print-area w-[210mm] h-[297mm] bg-white'>
-            <div className=' grid grid-cols-2 grid-rows-5 grid-flow-col gap-4 px-[15mm]'>
+          <div id='student-card-page' className='print-area w-[210mm] bg-white'>
+            <div className=' grid grid-cols-2 grid-rows-5 gap-4 px-[15mm]'>
               {lstPrintCard.map((item, index) => {
                 return (
-                  <StudentCardItem key={item.id} studentInfo={item} />
+                  <div key={item.id} className="break-before-page">
+                    <StudentCardItem studentInfo={item} />
+                  </div>
                 )
               })}
             </div>

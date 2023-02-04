@@ -29,9 +29,6 @@ export const StudentTable = () => {
     if (index !== -1) {
       setErrMessage('Thẻ này đã thêm rồi!')
       setIsShowError(true)
-    } else if (lstPrintCard.length === 10) {
-      setErrMessage('Số lượng in một lần là 10 em!')
-      setIsShowError(true)
     } else {
       dispatch(studentAction.addOneStudentCard(data))
     }
