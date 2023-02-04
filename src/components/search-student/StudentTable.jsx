@@ -105,7 +105,7 @@ export const StudentTable = () => {
             <Column label="Họ tên" dataKey="fullName" width={300} maxWidth={400} />
             <Column
               width={100}
-              label="Phân ngành"
+              label="Phân đoàn"
               className="flex justify-center"
               headerClassName="text-center"
               dataKey="unit"
