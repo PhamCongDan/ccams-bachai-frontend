@@ -48,7 +48,7 @@ const SearchStudent = () => {
             <input
               type="search"
               id="search"
-              className="block max-w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              className="block w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
               placeholder="Họ tên không dấu"
               required
               onChange={(e) => changeSearch(e.target.value)}
