@@ -15,7 +15,7 @@ export const PrintPage = () => {
         <div className="no-print flex justify-between items-center pt-4">
           <button onClick={() => navigate('/search')}>{`< Back`}</button>
           <button
-            className="text-gray-900 bg-gray-300 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 transition ease-in-out"
+            className="btn-primary--contained"
             onClick={() => window.print()}
           >
             <BaseIcon>

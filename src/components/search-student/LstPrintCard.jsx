@@ -15,9 +15,9 @@ export const LstPrintCard = () => {
     <div className="no-print">
       {lstPrintCard.map((item, index) => {
         return (
-          <div key={item.id} className="flex gap-2">
+          <div key={item.id} className="flex items-center gap-2">
             <ul>{item.fullName}</ul>
-            <button className="text-red-500" onClick={() => removeStudentCard(item)}>✖</button>
+            <span className="text-red-500 cursor-pointer" onClick={() => removeStudentCard(item)}>✖</span>
           </div>
         );
       })}

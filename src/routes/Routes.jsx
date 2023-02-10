@@ -9,7 +9,6 @@ const RoutesMainLayout = () => {
   return (
     <Routes>
       <Route exact path='/search' element={<SearchStudentPage />} pathname='search'  />
-      <Route exact path='/report' element={<ReportPage />} pathname='Report' />
       <Route
         path="/print"
         element={
