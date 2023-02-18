@@ -6,7 +6,6 @@ export const ProtectedRoute = ({ children }) => {
     ({ studentReducers }) => studentReducers.lstPrintCard
   );
   if (!lstPrintCard.length) {
-    // user is not authenticated
     return <Navigate to="/search" />;
   }
   return children;

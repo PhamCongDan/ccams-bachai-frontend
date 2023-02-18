@@ -1,5 +1,6 @@
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  isNganhAu: false,
 }
 
 export const APP_UPDATE_STATUS = 'APP_UPDATE_STATUS';

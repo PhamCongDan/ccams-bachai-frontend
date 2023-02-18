@@ -111,7 +111,7 @@ export const FilterLayout = () => {
       />
       <button
         type="button" 
-        disabled={!activeClass}
+        disabled={!activeClass || !endDate}
         className="w-full btn-primary--contained"
         onClick={handleSearch}
       >
@@ -120,7 +120,7 @@ export const FilterLayout = () => {
 
       <button
         type="button" 
-        disabled={!activeClass}
+        disabled={!activeClass || !endDate}
         className="w-full btn-primary--contained"
         onClick={downloadReport}
       >
