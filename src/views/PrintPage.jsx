@@ -27,13 +27,13 @@ export const PrintPage = () => {
           id="student-card-page"
           className="w-[210mm] bg-white m-auto"
         >
-          <div className="grid grid-cols-2 grid-rows-5 gap-4 px-[15mm]">
+          <div className="grid grid-cols-2 grid-rows-5 gap-4 gap-y-8 px-[8mm]">
             {lstPrintCard.map((item, index) => {
               return (
                 <div
                   key={item.id}
                   className={`${
-                    (index + 1) % 10 === 0 ? "break-after-page" : ""
+                    (index + 1) % 8 === 0 ? "break-after-page" : ""
                   }` }
                 >
                   <StudentCardItem studentInfo={item} />
