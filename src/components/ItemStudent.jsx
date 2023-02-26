@@ -21,7 +21,7 @@ export const ItemStudent = (props) => {
         >
           {index + 1}
         </th>
-        <td className="px-6">{id}</td>
+        {/* <td className="px-6">{id}</td> */}
         <td className="px-6">{holyName}</td>
         <td className="px-6">{lastName}</td>
         <td className="px-6">{firstName}</td>

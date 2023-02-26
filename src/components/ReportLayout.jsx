@@ -23,9 +23,9 @@ const ReportLayout = () => {
               <th scope="col" className="px-6 py-3">
                 STT
               </th>
-              <th scope="col" className="px-6 py-3">
+              {/* <th scope="col" className="px-6 py-3">
                 ID
-              </th>
+              </th> */}
               <th scope="col" className="px-6 py-3">
                 Tên thánh
               </th>

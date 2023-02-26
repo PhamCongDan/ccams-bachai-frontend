@@ -37,8 +37,8 @@ export const StudentCardItem = (props) => {
           <label className='font-bold'>{phoneNumber}</label>
         </div>
         <div className='flex gap-2 leading-tight'>
-          <label className=''>GL Viên:</label>
-          <label className='font-bold'>{teacher} - <br />{teacherPhoneNumber}</label>
+          <label className='w-24'>GL Viên:</label>
+          <label className='font-bold'>{teacher} - {teacherPhoneNumber}</label>
         </div>
       </div>
       <div className='w-[60px] h-[60px] absolute right-4 top-[40%] bottom-10'>
