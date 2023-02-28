@@ -10,7 +10,6 @@ export const ItemStudent = (props) => {
     attendClass,
     sunday,
     weekDay,
-    id,
   } = student;
   return (
 

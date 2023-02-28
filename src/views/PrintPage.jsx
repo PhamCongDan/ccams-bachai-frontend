@@ -10,9 +10,9 @@ export const PrintPage = () => {
   );
   const navigate = useNavigate();
   return (
-    <div className="bg-slate-200 min-h-screen m-auto">
+    <div className="bg-slate-200 m-auto py-4">
       <div className="container m-auto">
-        <div className="no-print flex justify-between items-center pt-4">
+        <div className="no-print flex justify-between items-center">
           <button onClick={() => navigate('/search')}>{`< Back`}</button>
           <button
             className="btn-primary--contained"
@@ -27,7 +27,7 @@ export const PrintPage = () => {
           id="student-card-page"
           className="w-[210mm] bg-white m-auto"
         >
-          <div className="grid grid-cols-2 grid-rows-5 gap-4 gap-y-8 px-[8mm]">
+          <div className="grid grid-cols-2 grid-rows-4 gap-4 gap-y-8 px-[8mm]">
             {lstPrintCard.map((item, index) => {
               return (
                 <div
