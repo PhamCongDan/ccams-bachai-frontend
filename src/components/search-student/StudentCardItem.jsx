@@ -4,8 +4,7 @@ import logo from '../../assets/img/logo-thieu-nhi-thanh-the.png';
 
 export const StudentCardItem = (props) => {
   const { studentInfo: { id, fullName, grade, unit, teacher,
-    teacherPhoneNumber, phoneNumber } } = props;
-
+    teacherPhoneNumber, phoneNumbers } } = props;
   return (
     <div className='m-auto border border-black w-[90mm] h-[60mm] py-2 px-3 relative'>
       {/* 1 cai the co id {id} */}
@@ -34,7 +33,7 @@ export const StudentCardItem = (props) => {
         </div>
         <div className='flex gap-2'>
           <label className='flex'>ĐT Liên lạc:</label>
-          <label className='font-bold'>{phoneNumber}</label>
+          <label className='font-bold'>{phoneNumbers.join(' - ')}</label>
         </div>
         <div className='flex gap-2 leading-tight'>
           <label className='w-24'>GL Viên:</label>
