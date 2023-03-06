@@ -1,10 +1,13 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { SelectBox } from './common/SelectBox'
 import { SelectBoxItem } from './common/SelectBoxItem'
 import DatePicker, { DateObject } from "react-multi-date-picker"
 import { useDispatch, useSelector } from 'react-redux'
 import * as filterAction from '../modules/filter'
 import * as reportAction from '../modules/report'
+
+const weekDays = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"]
+const months = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"]
 
 export const FilterLayout = () => {
   const [activeUnit, setActiveUnit] = useState('');
@@ -14,6 +17,10 @@ export const FilterLayout = () => {
     new DateObject().subtract(7, 'days'),
     new DateObject()
   ])
+
+  const [maxDate, setMaxDate] = useState(new Date());
+  const [minDate, setMinDate] = useState(new Date().setMonth(new Date().getMonth() - 3));
+
   const grade = useSelector(({ filterReducers }) => filterReducers.grade)
   const className = useSelector(({ filterReducers }) => filterReducers.class)
   const reporter = useSelector(({ reportReducers }) => reportReducers.report)
@@ -71,7 +78,17 @@ export const FilterLayout = () => {
       startDate,
       endDate
     }))
-  }
+  };
+
+  useEffect(() => {
+    if (!endDate) {
+      const after3MonthFromStartDate = new Date(startDate).setMonth(new Date(startDate).getMonth() + 3);
+      const before3MonthFromStartDate = new Date(startDate).setMonth(new Date(startDate).getMonth() -3);
+
+      setMaxDate(Math.min(new Date(after3MonthFromStartDate).getTime(), new Date().getTime()));
+      setMinDate(before3MonthFromStartDate)
+    }
+  }, [endDate, startDate])
 
   return (
     <div className='grid grid-rows-2 md:grid-cols-5 gap-4'>
@@ -103,11 +120,13 @@ export const FilterLayout = () => {
         placeholder='Khoảng thời gian'
         range
         numberOfMonths={2}
-        maxDate={new Date()}
-        minDate={new Date().setMonth(new Date().getMonth() - 3)}
+        maxDate={maxDate}
+        minDate={minDate}
         value={rangeDate}
         onChange={setRangeDate}
         format='DD/MM/YYYY'
+        weekDays={weekDays}
+        months={months}
       />
       <button
         type="button" 
