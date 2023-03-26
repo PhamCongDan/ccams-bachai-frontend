@@ -92,7 +92,7 @@ export const TestPage = () => {
     </div>
   )
   return (
-    <div className="container m-auto">
+    <div className="container m-auto mt-4">
       <FilterSMS
         type={type}
         searchText={searchText}
