@@ -11,7 +11,7 @@ export const TestPage = () => {
 
   const queryData = (params = null) => {
     setIsLoading(true);
-    axios.get(`https://sheetdb.io/api/v1/xqj8hnmasg0fe/${params ? 'search': ''}`, { params: params })
+    axios.get(`${process.env.REACT_APP_SEARCH_SMS_API}/${params ? 'search': ''}`, { params: params })
       .then((res) => {
         const lstData = res.data.sort((a, b) => {
           const first = a?.['TÊN']?.toLowerCase();
