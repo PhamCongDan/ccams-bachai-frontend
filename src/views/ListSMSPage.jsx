@@ -67,7 +67,7 @@ export const TestPage = () => {
     </div>
   );
   const loadingDom = (
-    <div className="h-[750px] w-[1090px] max-w-full m-auto">
+    <div className="h-[750px] w-[1040px] max-w-full m-auto">
       <div className="w-full h-full flex items-center justify-center relative">
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20"></div>
         <div role="status" className="">
@@ -103,7 +103,7 @@ export const TestPage = () => {
       {isLoading ? loadingDom :
         <Table
           className="overflow-auto relative text-md text-left text-gray-500 z-0 w-fit border m-auto"
-          width={1090}
+          width={1040}
           height={750}
           headerHeight={44}
           rowHeight={33}
@@ -137,7 +137,7 @@ export const TestPage = () => {
             headerClassName="text-center"
             dataKey="TÊN THÁNH"
           />
-          <Column width={250} label="HỌ VÀ TÊN ĐỆM" dataKey="HỌ VÀ TÊN ĐỆM" />
+          <Column width={200} label="HỌ VÀ TÊN ĐỆM" dataKey="HỌ VÀ TÊN ĐỆM" />
           <Column width={150} label="TÊN" dataKey="TÊN" className="pl-8"/>
           <Column
             width={100}
