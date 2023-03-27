@@ -59,7 +59,7 @@ export const TestPage = () => {
         };
         break;
       }
-      case "sm":
+      case "course":
         params = { "SA MẠC": `*${searchText}*` };
         break;
       default:
