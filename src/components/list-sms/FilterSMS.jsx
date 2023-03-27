@@ -15,7 +15,7 @@ const FilterSMS = (props) => {
           <input
             type="search"
             id="search"
-            className="block w-96 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+            className="block sm:w-96 p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
             placeholder="Tìm..."
             required
             onChange={(e) => changeSearchText(e.target.value)}
