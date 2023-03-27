@@ -102,7 +102,7 @@ export const TestPage = () => {
     </div>
   );
   return (
-    <div className="m-auto mt-4">
+    <div className="m-auto">
       <FilterSMS
         type={type}
         searchText={searchText}
@@ -113,7 +113,7 @@ export const TestPage = () => {
       {isLoading ? (
         loadingDom
       ) : (
-        <div className="p-4 overflow-hidden">
+        <div className="overflow-hidden">
           <Table
             className="overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit"
             width={1040}
