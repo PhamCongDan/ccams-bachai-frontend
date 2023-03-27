@@ -84,6 +84,25 @@ const FilterSMS = (props) => {
             </label>
           </div>
         </li>
+        <li className="">
+          <div className="flex items-center pl-3">
+            <input
+              id="horizontal-list-radio-sm"
+              type="radio"
+              value="sm"
+              name="list-radio"
+              className="w-full py-3 pl-2 text-sm font-medium text-gray-900"
+              onChange={(e) => changeType(e.target.value)}
+              checked={type === "sm"}
+            />
+            <label
+              htmlFor="horizontal-list-radio-sm"
+              className="w-full py-3 pl-2 text-sm font-medium text-gray-900 whitespace-pre"
+            >
+              Sa mạc
+            </label>
+          </div>
+        </li>
       </ul>
     </>
   );
