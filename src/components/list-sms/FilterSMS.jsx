@@ -2,7 +2,7 @@ import React from "react";
 import { BaseIcon, IconSearch } from "../icon";
 
 const FilterSMS = (props) => {
-  const { type, changeType, changeSearchText, actionSearch } = props;
+  const { type, changeType, changeSearchText, actionSearch, searchText } = props;
   return (
     <>
       <div className="flex justify-center gap-2">
@@ -21,7 +21,7 @@ const FilterSMS = (props) => {
             onChange={(e) => changeSearchText(e.target.value)}
           />
         </div>
-        <button className="btn-primary--contained" onClick={actionSearch}>
+        <button className="btn-primary--contained" disabled={!searchText} onClick={actionSearch}>
           Search
         </button>
       </div>
