@@ -76,7 +76,7 @@ export const TestPage = () => {
   );
   const loadingDom = (
     <div className="p-6">
-      <div className="h-[500px] w-[1040px] max-w-full m-auto">
+      <div className="h-[500px] w-[1068px] max-w-full m-auto">
         <div className="w-full h-full flex items-center justify-center relative">
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20"></div>
           <div role="status" className="">
@@ -116,7 +116,7 @@ export const TestPage = () => {
         <div className="overflow-hidden">
           <Table
             className="overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit"
-            width={1040}
+            width={1068}
             height={500}
             headerHeight={44}
             rowHeight={33}
@@ -144,14 +144,14 @@ export const TestPage = () => {
               dataKey="Mã SMS"
             />
             <Column
-              width={100}
+              width={111}
               label="TÊN THÁNH"
               className="flex justify-center"
               headerClassName="text-center"
               dataKey="TÊN THÁNH"
             />
             <Column
-              width={200}
+              width={215}
               flexGrow={1}
               flexShrink={1}
               label="HỌ VÀ TÊN ĐỆM"
@@ -159,7 +159,7 @@ export const TestPage = () => {
             />
             <Column width={150} label="TÊN" dataKey="TÊN" className="pl-8" />
             <Column
-              width={100}
+              width={102}
               flexGrow={1}
               label="NGÀY SINH"
               dataKey="NGÀY SINH"
