@@ -7,10 +7,12 @@ import { StudentTable } from "./StudentTable";
 import * as studentAction from '../../modules/student'
 import { LstPrintCard } from "./LstPrintCard";
 import { useNavigate } from "react-router-dom";
+import { LstRequestedStudentCard } from "./LstRequestedStudentCard";
 
 const SearchStudent = () => {
   const dispatch = useDispatch();
   const printList = useSelector(({ studentReducers }) => studentReducers.lstPrintCard);
+  const isNganhAu = useSelector(({ appReducers }) => appReducers.isNganhAu);
   const [strSearch, setStrSearch] = useState('');
   const navigate = useNavigate();
 
@@ -73,6 +75,7 @@ const SearchStudent = () => {
           </button>
           
           <LstPrintCard />
+          {isNganhAu && <LstRequestedStudentCard />}
         </div>
       </div>
     </>
