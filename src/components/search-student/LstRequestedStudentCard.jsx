@@ -23,8 +23,8 @@ export const LstRequestedStudentCard = () => {
       })
   }, [dispatch]);
 
-  const updateRequestPrintCard = (name) => {
-    return axios.patch(`${process.env.REACT_APP_REQUEST_STUDENT_CARD_API}/Tên thánh - Họ tên/${name}`,
+  const updateRequestPrintCard = (id) => {
+    return axios.patch(`${process.env.REACT_APP_REQUEST_STUDENT_CARD_API}/ID/${id}`,
       {
         'Status': 'done'
       }
@@ -38,7 +38,7 @@ export const LstRequestedStudentCard = () => {
   }
 
   const updateAll = () => {
-    return Promise.allSettled(lstData.map((item) => updateRequestPrintCard(item['Tên thánh - Họ tên'])))
+    return Promise.allSettled(lstData.map((item) => updateRequestPrintCard(item['ID'])))
   }
 
   const updateStatus = () => {
