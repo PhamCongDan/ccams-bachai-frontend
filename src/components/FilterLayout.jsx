@@ -5,6 +5,7 @@ import DatePicker, { DateObject } from "react-multi-date-picker"
 import { useDispatch, useSelector } from 'react-redux'
 import * as filterAction from '../modules/filter'
 import * as reportAction from '../modules/report'
+import { UNIT_LIST } from '../helper/constants'
 
 const weekDays = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"]
 const months = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"]
@@ -91,14 +92,12 @@ export const FilterLayout = () => {
   }, [endDate, startDate])
 
   return (
-    <div className='grid grid-rows-2 md:grid-cols-5 gap-4'>
+    <div className='grid grid-rows-2 md:grid-cols-5 gap-2'>
       <div className='w-full'>
         <SelectBox name="Ngành" value={activeUnit} >
-          <SelectBoxItem name='Ngành Chiên' value='chien' changeSelection={changeUnit} />
-          <SelectBoxItem name='Ngành Ấu' value='au' changeSelection={changeUnit} />
-          <SelectBoxItem name='Ngành Thiếu' value='thieu' changeSelection={changeUnit} />
-          <SelectBoxItem name='Ngành Nghĩa' value='nghia' changeSelection={changeUnit} />
-          <SelectBoxItem name='Ngành Hiệp' value='hiep' changeSelection={changeUnit} />
+          {UNIT_LIST.map((item) => {
+            return (<SelectBoxItem name={item.name} value={item.value} key={item.value} changeSelection={changeUnit} />)
+          })}
         </SelectBox>
       </div>
       <div className='w-full'>
@@ -119,7 +118,7 @@ export const FilterLayout = () => {
         inputClass='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
         placeholder='Khoảng thời gian'
         range
-        numberOfMonths={2}
+        numberOfMonths={window.isMobile() ? 1 : 2}
         maxDate={maxDate}
         minDate={minDate}
         value={rangeDate}

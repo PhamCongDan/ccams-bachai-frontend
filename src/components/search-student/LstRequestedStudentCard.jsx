@@ -58,13 +58,15 @@ export const LstRequestedStudentCard = () => {
   return (
     <div className="no-print border p-2 mt-2 text-gray-500">
       <p className="font-bold text-center">CẤP LẠI THẺ NGÀNH ẤU</p>
-      {lstData.map((item, index) => {
-        return (
-          <div key={index} className="flex items-center gap-2 capitalize">
-            <ul>{index + 1}. {item?.['Tên thánh - Họ tên']} - {item?.['Chi đoàn']}</ul>
-          </div>
-        );
-      })}
+      <ol start={1}>
+        {lstData.map((item, index) => {
+          return (
+            <li key={index} className="capitalize">
+              {index + 1}. {item?.['Tên thánh - Họ tên']} - {item?.['Chi đoàn']}
+            </li>
+          );
+        })}
+      </ol>
       <div className='w-full flex justify-center mt-2'>
         <button disabled={!lstData.length} className='btn-primary--contained' onClick={updateStatus}>Xác nhận đã in</button>
       </div>

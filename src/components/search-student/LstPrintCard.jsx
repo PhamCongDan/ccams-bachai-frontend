@@ -14,14 +14,16 @@ export const LstPrintCard = () => {
   return (
     <div className="no-print border p-2 mt-2 text-gray-500">
       <p className="font-bold text-center">DANH SÁCH IN THẺ</p>
-      {lstPrintCard.map((item, index) => {
-        return (
-          <div key={item.id} className="flex items-center gap-2 ">
-            <ul>{index + 1}. {item.fullName}</ul>
-            <span className="text-red-500 cursor-pointer" onClick={() => removeStudentCard(item)}>✖</span>
-          </div>
-        );
-      })}
+      <ol start={1}>
+        {lstPrintCard.map((item, index) => {
+          return (
+            <li key={item.id} className="flex items-center gap-2 ">
+              <span>{index + 1}. {item.fullName}</span>
+              <span className="text-red-500 cursor-pointer" onClick={() => removeStudentCard(item)}>✖</span>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 };

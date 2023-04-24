@@ -45,6 +45,13 @@ export const StudentTable = () => {
     )
   };
 
+  const renderPhoneNumber = (e) => {
+    const { cellData } = e
+    return (
+      <div dangerouslySetInnerHTML={{ __html: cellData.join('<br />') }} />
+    )
+  }
+
   const loadingDom = (
     <div className="h-[600px] w-[1200px] max-w-full">
       <div className="w-full h-full flex items-center justify-center relative">
@@ -83,10 +90,10 @@ export const StudentTable = () => {
           :
           <Table
             className="overflow-auto relative text-md text-left text-gray-500 z-0"
-            width={1250}
-            height={600}
+            width={window.isMobile() ? 1350 : 1400}
+            height={700}
             headerHeight={44}
-            rowHeight={33}
+            rowHeight={50}
             rowCount={studentList.length}
             rowGetter={({ index }) => studentList[index]}
             noRowsRenderer={() => emptyText}
@@ -126,13 +133,22 @@ export const StudentTable = () => {
               className="flex justify-center"
             />
             <Column
-              width={100}
-              label="In thẻ"
-              dataKey="action"
-              className="md:flex md:visible justify-center invisible"
-              headerClassName="md:flex md:visible justify-center invisible"
-              cellRenderer={(e) => printButton(e)}
+              width={200}
+              label="Điện thoại"
+              dataKey="phoneNumbers"
+              className="flex justify-center"
+              cellRenderer={(e) => renderPhoneNumber(e)}
             />
+            {!window.isMobile() &&
+              <Column
+                width={50}
+                label="In thẻ"
+                dataKey="action"
+                className="md:flex md:visible justify-center invisible"
+                headerClassName="md:flex md:visible justify-center invisible"
+                cellRenderer={(e) => printButton(e)}
+              />
+            }
           </Table>
         }
       </div>
