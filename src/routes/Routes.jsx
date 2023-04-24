@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
-import { TestPage } from "../views/ListSMSPage";
+import { ListSMSPage } from "../views/ListSMSPage";
 import { configRoutes } from "./configRoutes";
 
 const RoutesMainLayout = () => {
@@ -11,7 +11,7 @@ const RoutesMainLayout = () => {
   return (
     <>
       <Routes>
-        <Route exact element={<TestPage />} path='/tra-cuu-sms' pathname='test' />
+        <Route exact element={<ListSMSPage />} path='/tra-cuu-sms' pathname='test' />
         <Route element={<Header />}>
           {configRoutes.map((route) => {
             return (

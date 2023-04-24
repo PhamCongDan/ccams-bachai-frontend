@@ -3,17 +3,30 @@ import React, { useState } from "react";
 import { Table, Column } from "react-virtualized/dist/es/Table";
 import { FilterSMS } from "../components/list-sms";
 
-export const TestPage = () => {
+const API_URL_LIST = [
+  '0vennslltfu2q',
+  '7h3rsv9amdal3',
+];
+
+export const ListSMSPage = () => {
   const [searchText, setSearchText] = useState("");
   const [type, setType] = useState("name");
   const [isLoading, setIsLoading] = useState(false);
   const [lstData, setLstData] = useState([]);
 
+  
+  const getUrlApi = () => {
+    const today = new Date().getDate();
+    const indexApiUrl = today % API_URL_LIST.length
+    return API_URL_LIST[indexApiUrl]
+  }
+
   const queryData = (params = null) => {
     setIsLoading(true);
+    const urlApi = getUrlApi();
     axios
       .get(
-        `${process.env.REACT_APP_SEARCH_SMS_API}/${params ? "search" : ""}`,
+        `https://sheetdb.io/api/v1/${urlApi}/${params ? "search" : ""}`,
         { params: params }
       )
       .then((res) => {
