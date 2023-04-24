@@ -46,7 +46,7 @@ const FilterSMS = (props) => {
           disabled={!searchText}
           onClick={actionSearch}
         >
-          Search
+          Tìm kiếm
         </button>
       </div>
       {/* radio group */}
