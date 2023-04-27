@@ -1,3 +1,3 @@
-import Routes from './Routes';
+import RoutesMainLayout from './Routes';
 
-export { Routes }
+export { RoutesMainLayout }

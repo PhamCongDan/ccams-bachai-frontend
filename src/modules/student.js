@@ -39,9 +39,19 @@ export function searchStudent(request) {
     })
     return api.post('attendance/search', request)
       .then(res => {
+        const lstFirstName = res.map((item) => {
+          const firstName = item.fullName.split(' ');
+          return {
+            ...item,
+            firstName: firstName[firstName.length - 1]
+          }
+        })
+        const sortedLst = lstFirstName.sort((a, b) => {
+          return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase())
+        })
         return dispatch({
           type: STUDENT_UPDATE_STATUS,
-          payload: { students: res }
+          payload: { students: sortedLst }
         })
       })
       .finally(() => {

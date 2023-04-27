@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Table, Column } from "react-virtualized/dist/es/Table";
-import { FilterSMS } from "../components/list-sms";
+import FilterSMS from "../components/list-sms/FilterSMS";
 
 const API_URL_LIST = [
   '0vennslltfu2q',

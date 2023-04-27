@@ -1,6 +1,6 @@
 import { store } from "./store";
 import { Provider } from 'react-redux';
-import { Routes } from './routes';
+import { RoutesMainLayout } from './routes';
 
 function App() {
   window.isMobile = function() {
@@ -10,7 +10,7 @@ function App() {
   };
   return (
     <Provider store={store}>
-      <Routes />
+      <RoutesMainLayout />
     </Provider>
   );
 }
