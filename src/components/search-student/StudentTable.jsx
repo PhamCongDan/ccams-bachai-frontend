@@ -45,15 +45,19 @@ export const StudentTable = () => {
     )
   };
 
-  const renderPhoneNumber = (e) => {
-    const { cellData } = e
+  const renderPhoneNumber = (data) => {
     return (
-      <div dangerouslySetInnerHTML={{ __html: cellData.join('<br />') }} />
+      <div dangerouslySetInnerHTML={{ __html: data.join('<br />') }} />
     )
   }
 
+  const formatDate = (bod) => {
+    const date = new Date(bod)
+    return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`
+  }
+
   const loadingDom = (
-    <div className="h-[600px] w-[1200px] max-w-full">
+    <div className="h-[700px] w-[1500px] max-w-full">
       <div className="w-full h-full flex items-center justify-center relative">
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20"></div>
         <div role="status" className="">
@@ -90,7 +94,7 @@ export const StudentTable = () => {
           :
           <Table
             className="overflow-auto relative text-md text-left text-gray-500 z-0"
-            width={window.isMobile() ? 1350 : 1400}
+            width={1500}
             height={700}
             headerHeight={44}
             rowHeight={50}
@@ -124,6 +128,14 @@ export const StudentTable = () => {
               headerClassName="text-center"
               dataKey="grade"
             />
+            <Column
+              width={150}
+              label="Ngày sinh"
+              className="flex justify-center"
+              headerClassName="text-center"
+              dataKey="bod"
+              cellDataGetter={({ rowData, dataKey }) => formatDate(rowData[dataKey])}
+            />
             <Column width={250} label="Họ tên Cha" dataKey="father" />
             <Column width={250} label="Họ tên Mẹ" dataKey="mother" />
             <Column
@@ -137,7 +149,7 @@ export const StudentTable = () => {
               label="Điện thoại"
               dataKey="phoneNumbers"
               className="flex justify-center"
-              cellRenderer={(e) => renderPhoneNumber(e)}
+              cellRenderer={({ cellData }) => renderPhoneNumber(cellData)}
             />
             {!window.isMobile() &&
               <Column
