@@ -4,9 +4,9 @@ import { Table, Column } from "react-virtualized/dist/es/Table";
 import FilterSMS from "../components/list-sms/FilterSMS";
 
 const API_URL_LIST = [
+  '0vennslltfu2q',
   'bp2pfsowh7nom',
   '7h3rsv9amdal3',
-  '0vennslltfu2q',
 ];
 
 export const ListSMSPage = () => {
