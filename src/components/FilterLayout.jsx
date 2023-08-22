@@ -119,8 +119,8 @@ export const FilterLayout = () => {
         placeholder='Khoảng thời gian'
         range
         numberOfMonths={window.isMobile() ? 1 : 2}
-        maxDate={maxDate}
-        minDate={minDate}
+        maxDate={new Date()}
+        // minDate={minDate}
         value={rangeDate}
         onChange={setRangeDate}
         format='DD/MM/YYYY'

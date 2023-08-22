@@ -15,7 +15,6 @@ export const ListSMSPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [lstData, setLstData] = useState([]);
 
-  
   const getUrlApi = () => {
     const today = new Date().getDate();
     const indexApiUrl = today % API_URL_LIST.length

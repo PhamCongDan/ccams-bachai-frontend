@@ -47,7 +47,8 @@ export function getClass(id) {
     })
     return api.get(`grade`, {
       params: {
-        unitIds: id
+        unitIds: id,
+        scholasticId: '4'
       }})
       .then(data => {
         // comment this for production
