@@ -26,7 +26,7 @@ export const ListSMSPage = () => {
     const urlApi = getUrlApi();
     axios
       .get(
-        `https://sheetdb.io/api/v1/bp2pfsowh7nom/${params ? "search" : ""}`,
+        `https://sheetdb.io/api/v1/${urlApi}/${params ? "search" : ""}`,
         { params: params }
       )
       .then((res) => {
