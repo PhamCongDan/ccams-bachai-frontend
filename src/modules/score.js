@@ -3,39 +3,37 @@ import { downloadFileService } from '../ultils';
 import { APP_UPDATE_STATUS } from './app';
 
 const initialState = {
-  report: [],
+  score: [],
 };
 
-export const REPORT_UPDATE_STATUS = 'REPORT_UPDATE_STATUS';
+export const SCORE_UPDATE_STATUS = 'SCORE_UPDATE_STATUS';
 
-export function reportUpdateStatus(payload) {
+export function scoreUpdateStatus(payload) {
   return {
-    type: REPORT_UPDATE_STATUS,
+    type: SCORE_UPDATE_STATUS,
     payload,
   };
 }
 
-export function getReportByClass(request) {
+export function getScoreByClass(request) {
   return (dispatch) => {
     dispatch({
       type: APP_UPDATE_STATUS,
       payload: { isLoading: true },
     });
     return api
-      .post('attendance', {
-        ...request,
+      .get('score', {
+        params: {
+          gradeId: request.gradeId,
+          semesterIds: request.semesterIds,
+        },
       })
-      .then((res) => {
-        const lstData = res.sort((a, b) => {
-          const first = a.firstName.toLowerCase();
-          const second = b.firstName.toLowerCase();
-          return first.localeCompare(second);
-        });
-        return dispatch({
-          type: REPORT_UPDATE_STATUS,
-          payload: { report: lstData },
-        });
-      })
+      .then((res) =>
+        dispatch({
+          type: SCORE_UPDATE_STATUS,
+          // payload: { report: lstData }
+        }),
+      )
       .finally(() => {
         dispatch({
           type: APP_UPDATE_STATUS,
@@ -73,9 +71,9 @@ export function downloadReportByClass(request) {
   };
 }
 
-export const reportReducers = (state = initialState, action) => {
+export const scoreReducers = (state = initialState, action) => {
   switch (action.type) {
-    case REPORT_UPDATE_STATUS:
+    case SCORE_UPDATE_STATUS:
       Object.keys(action.payload).forEach((prop) => {
         state[prop] = action.payload[prop];
       });

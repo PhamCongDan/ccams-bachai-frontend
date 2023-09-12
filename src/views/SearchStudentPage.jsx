@@ -1,8 +1,6 @@
-import React from 'react'
-import { SearchStudent } from '../components/search-student'
+import React from 'react';
+import { SearchStudent } from '../components/search-student';
 
-export const SearchStudentPage = () => {
-  return (
-    <SearchStudent />
-  )
+export function SearchStudentPage() {
+  return <SearchStudent />;
 }

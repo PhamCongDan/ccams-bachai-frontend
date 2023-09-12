@@ -1,5 +1,3 @@
 import FilterSMS from './FilterSMS';
 
-export {
-  FilterSMS
-}
+export { FilterSMS };

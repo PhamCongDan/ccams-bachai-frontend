@@ -1,8 +1,6 @@
-import React from 'react'
-import { MainLayout } from '../components/MainLayout'
+import React from 'react';
+import { MainLayout } from '../components/MainLayout';
 
-export const ReportPage = () => {
-  return (
-    <MainLayout />
-  )
+export function ReportPage() {
+  return <MainLayout />;
 }

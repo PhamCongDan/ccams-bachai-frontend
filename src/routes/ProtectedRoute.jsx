@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
-export const ProtectedRoute = ({ children }) => {
+export function ProtectedRoute({ children }) {
   const lstPrintCard = useSelector(
-    ({ studentReducers }) => studentReducers.lstPrintCard
+    ({ studentReducers }) => studentReducers.lstPrintCard,
   );
   if (!lstPrintCard.length) {
-    return <Navigate to="/search" />;
+    return <Navigate to='/search' />;
   }
   return children;
-};
+}

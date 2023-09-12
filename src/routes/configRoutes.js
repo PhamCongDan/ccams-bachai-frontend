@@ -1,19 +1,25 @@
-import { PrintPage } from "../views/PrintPage";
-import { ReportPage } from "../views/ReportPage";
-import { RequestCardPage } from "../views/RequestCardPage";
-import { SearchStudentPage } from "../views/SearchStudentPage";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { PrintPage } from '../views/PrintPage';
+import { ReportPage } from '../views/ReportPage';
+import { RequestCardPage } from '../views/RequestCardPage';
+import ScoreStudentPage from '../views/ScoreStudentPage';
+import { SearchStudentPage } from '../views/SearchStudentPage';
+import { ProtectedRoute } from './ProtectedRoute';
 
 export const configRoutes = [
   {
     name: 'Search',
     path: '/search',
-    component: (<SearchStudentPage />)
+    component: <SearchStudentPage />,
+  },
+  {
+    name: 'Score',
+    path: '/score',
+    component: <ScoreStudentPage />,
   },
   {
     name: 'RequestCard',
     path: '/request-card',
-    component: (<RequestCardPage />)
+    component: <RequestCardPage />,
   },
   {
     name: 'Print',
@@ -22,11 +28,11 @@ export const configRoutes = [
       <ProtectedRoute>
         <PrintPage />
       </ProtectedRoute>
-    )
+    ),
   },
   {
     name: 'Report',
     path: '/',
-    component: (<ReportPage />)
-  }
-]
+    component: <ReportPage />,
+  },
+];

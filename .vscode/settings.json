@@ -1,0 +1,26 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "cSpell.words": [
+    "Dropin",
+    "Floorplan",
+    "Formik",
+    "MVALUE",
+    "Requestable",
+    "Swiper",
+    "unitnumber"
+  ]
+}
