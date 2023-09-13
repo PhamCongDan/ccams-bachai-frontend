@@ -71,5 +71,6 @@ module.exports = {
     'default-param-last': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/no-unstable-nested-components': 0,
   },
 };

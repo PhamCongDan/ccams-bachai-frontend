@@ -101,7 +101,7 @@ export function StudentTable() {
             rowHeight={50}
             rowCount={studentList.length}
             rowGetter={({ index }) => studentList[index]}
-            noRowsRenderer={emptyText}
+            noRowsRenderer={() => emptyText}
             headerClassName='text-sm text-gray-700 uppercase bg-gray-50 h-11 flex items-center justify-center'
             headerStyle={{ margin: 0 }}
             rowStyle={{ margin: 0 }}
