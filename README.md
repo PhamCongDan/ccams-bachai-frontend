@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My parish have build a CMS for catholic students. This is a web version that using technologies such as: React, Redux, TailwindCSS, HTML5 for frontend side. Users can track attendance, attend Mass, and search for information about each student by class.
 
 ## Available Scripts
 
