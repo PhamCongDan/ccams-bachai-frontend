@@ -47,12 +47,17 @@ export function searchStudent(request) {
             firstName: firstName[firstName.length - 1],
           };
         });
-        const sortedLst = lstFirstName.sort((a, b) =>
-          a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase()),
+        const lstInactiveStudent = lstFirstName.filter(
+          (item) => item.status !== 1,
         );
+        const sortedLst = lstFirstName
+          .filter((item) => item.status === 1)
+          .sort((a, b) =>
+            a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase()),
+          );
         return dispatch({
           type: STUDENT_UPDATE_STATUS,
-          payload: { students: sortedLst },
+          payload: { students: sortedLst.concat(lstInactiveStudent) },
         });
       })
       .finally(() =>

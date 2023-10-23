@@ -36,13 +36,17 @@ export function StudentTable() {
     }
   };
 
-  const printButton = (e) => (
-    <button
-      className='flex items-center justify-center font-bold text-blue-500 text-lg'
-      onClick={() => addToPrint(e.rowData)}>
-      ＋
-    </button>
-  );
+  const printButton = (e) => {
+    if (e.rowData.status === 1) {
+      return (
+        <button
+          className='flex items-center justify-center font-bold text-blue-500 text-lg'
+          onClick={() => addToPrint(e.rowData)}>
+          ＋
+        </button>
+      );
+    }
+  };
 
   const renderPhoneNumber = (data) => (
     <div dangerouslySetInnerHTML={{ __html: data.join('<br />') }} />
@@ -109,62 +113,161 @@ export function StudentTable() {
             <Column
               label='STT'
               dataKey='id'
-              cellRenderer={({ rowIndex }) => rowIndex + 1}
+              cellRenderer={({ rowIndex, rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.status === 1 ? rowIndex + 1 : ''}
+                </span>
+              )}
               width={50}
-              className='flex justify-center'
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
             />
             <Column
               label='Họ tên'
               dataKey='fullName'
               width={300}
               maxWidth={400}
+              className='flex items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.fullName}
+                </span>
+              )}
             />
             <Column
               width={100}
               label='Phân đoàn'
-              className='flex justify-center'
               headerClassName='text-center'
               dataKey='unit'
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.unit}
+                </span>
+              )}
             />
             <Column
               width={100}
               label='Chi đoàn'
-              className='flex justify-center'
-              headerClassName='text-center'
               dataKey='grade'
+              headerClassName='text-center'
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.grade}
+                </span>
+              )}
             />
             <Column
               width={150}
               label='Ngày sinh'
-              className='flex justify-center'
-              headerClassName='text-center'
               dataKey='bod'
+              headerClassName='text-center'
               cellDataGetter={({ rowData, dataKey }) =>
                 formatDate(rowData[dataKey])
               }
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {formatDate(rowData.bod)}
+                </span>
+              )}
             />
-            <Column width={250} label='Họ tên Cha' dataKey='father' />
-            <Column width={250} label='Họ tên Mẹ' dataKey='mother' />
+            <Column
+              width={250}
+              label='Họ tên Cha'
+              dataKey='father'
+              className='flex items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.father}
+                </span>
+              )}
+            />
+            <Column
+              width={250}
+              label='Họ tên Mẹ'
+              dataKey='mother'
+              className='flex items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.mother}
+                </span>
+              )}
+            />
             <Column
               width={100}
               label='Giáo họ'
               dataKey='diocese'
-              className='flex justify-center'
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {rowData.diocese}
+                </span>
+              )}
             />
             <Column
               width={200}
               label='Điện thoại'
               dataKey='phoneNumbers'
-              className='flex justify-center'
-              cellRenderer={({ cellData }) => renderPhoneNumber(cellData)}
+              className='flex justify-center items-center w-full h-full !m-0 first-of-type:!mx-0'
+              cellRenderer={({ rowData }) => (
+                <span
+                  className={`w-full h-full flex justify-center items-center ${
+                    rowData.status === 1
+                      ? 'bg-white'
+                      : 'bg-gray-400 bg-opacity-30'
+                  }`}>
+                  {renderPhoneNumber(rowData.phoneNumbers)}
+                </span>
+              )}
             />
             {!window.isMobile() && (
               <Column
                 width={50}
                 label='In thẻ'
                 dataKey='action'
-                className='md:flex md:visible justify-center invisible'
                 headerClassName='md:flex md:visible justify-center invisible'
+                className='md:flex md:visible justify-center invisible'
                 cellRenderer={(e) => printButton(e)}
               />
             )}
