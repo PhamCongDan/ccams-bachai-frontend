@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your source code from version control
-                git 'https://github.com/yourusername/your-react-project.git'
+                git 'https://github.com/PhamCongDan/ccams-bachai-frontend.git'
             }
         }
 
