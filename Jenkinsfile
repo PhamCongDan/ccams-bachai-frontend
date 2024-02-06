@@ -1,11 +1,21 @@
 pipeline {
     agent any
 
+    tools { nodejs "nodejs" }
+
     stages {
         stage('Checkout') {
             steps {
                 // Checkout your source code from version control
                 git 'https://github.com/PhamCongDan/ccams-bachai-frontend.git'
+            }
+        }
+
+        stage('Test npm') {
+            steps {
+                sh """
+                  npm --version
+                """
             }
         }
 
