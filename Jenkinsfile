@@ -8,13 +8,13 @@ pipeline {
             }
         }
 
-        // stage('Test npm') {
-        //     steps {
-        //         sh """
-        //           npm --version
-        //         """
-        //     }
-        // }
+        stage('Test npm') {
+            steps {
+                sh """
+                  npm --version
+                """
+            }
+        }
 
         // stage('Install Dependencies') {
         //     steps {
