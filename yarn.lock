@@ -8410,10 +8410,10 @@
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
 
-"react-date-object@^2.1.5":
-  "integrity" "sha512-iAtF2nz+jZjy3w36qKx2MsxXqbiL7UgGljz9jPjLWxWCl4rDTZUMS/i7hKKiVbL1lJlmubz1Xu6W3i6CW06kTg=="
-  "resolved" "https://registry.npmjs.org/react-date-object/-/react-date-object-2.1.5.tgz"
-  "version" "2.1.5"
+"react-date-object@^2.1.8":
+  "integrity" "sha512-94zg/9r29v/VsKsJT0E5+tPg85IyMirkU/B7qBWlhT7RDSuf9x5dczfbQOsj9TbzSVUK/Vx/ZDboOBy9hA381w=="
+  "resolved" "https://registry.npmjs.org/react-date-object/-/react-date-object-2.1.8.tgz"
+  "version" "2.1.8"
 
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
@@ -8488,12 +8488,12 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
-"react-multi-date-picker@^3.3.4":
-  "integrity" "sha512-bl1aTt3bmAYfsPpIUKsWVl3XWCfY3nxu7BFvLCR7j9iHckmiJNbkMBVGu5AvrcSa3mI39ybdHQuB3YzeM5O6Cg=="
-  "resolved" "https://registry.npmjs.org/react-multi-date-picker/-/react-multi-date-picker-3.3.4.tgz"
-  "version" "3.3.4"
+"react-multi-date-picker@^4.4.1":
+  "integrity" "sha512-z0utCiMYijt2w3UoVJkYgsReE9l1k6DkiL13Vr2RKHnBnorKK0IYq7xpfkuMimvt7sLumFr5wTKsWumCgSkXkA=="
+  "resolved" "https://registry.npmjs.org/react-multi-date-picker/-/react-multi-date-picker-4.4.1.tgz"
+  "version" "4.4.1"
   dependencies:
-    "react-date-object" "^2.1.5"
+    "react-date-object" "^2.1.8"
     "react-element-popper" "^2.1.6"
 
 "react-redux@^8.0.5":
