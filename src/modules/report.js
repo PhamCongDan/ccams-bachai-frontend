@@ -4,6 +4,7 @@ import { APP_UPDATE_STATUS } from './app';
 
 const initialState = {
   report: [],
+  selectedStudentId: '',
 };
 
 export const REPORT_UPDATE_STATUS = 'REPORT_UPDATE_STATUS';
