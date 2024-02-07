@@ -9,9 +9,9 @@ pipeline {
             }
         }
 
-        stage('test npm') { 
+        stage('Build') { 
             steps {
-                sh 'npm --version' 
+                sh 'npm install' 
             }
         }
 
