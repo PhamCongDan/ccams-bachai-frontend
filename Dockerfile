@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use NGINX as the web server
-FROM nginx:latest
+FROM nginx:1.24.0
 
 # Copy the built React app from the previous stage to NGINX's default public directory
 COPY --from=build /app/build /usr/share/nginx/html
