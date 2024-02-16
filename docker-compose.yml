@@ -3,5 +3,9 @@ version: '3.7'
 services:
   nginx:
     image: nginx:1.24.0
+    build:
+      context: .
     ports:
       - 80:80
+    volumes:
+      - /build:/usr/share/nginx/html
