@@ -84,7 +84,7 @@ export function ListSMSPage() {
   );
   const loadingDom = (
     <div className='p-6'>
-      <div className='h-[500px] w-[1066px] max-w-full m-auto'>
+      <div className='h-[500px] w-[1532px] max-w-full m-auto'>
         <div className='w-full h-full flex items-center justify-center relative'>
           <div className='absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20' />
           <div role='status' className=''>
@@ -109,7 +109,7 @@ export function ListSMSPage() {
     </div>
   );
   return (
-    <div className='m-auto'>
+    <div className='m-auto mt-2'>
       <FilterSMS
         type={type}
         searchText={searchText}
@@ -123,7 +123,7 @@ export function ListSMSPage() {
         <div className='overflow-hidden'>
           <Table
             className='overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit'
-            width={1066}
+            width={1300}
             height={500}
             headerHeight={44}
             rowHeight={33}
@@ -142,6 +142,7 @@ export function ListSMSPage() {
               className='flex justify-center'
             />
             <Column label='SA MẠC' dataKey='SA MẠC' width={130} />
+            <Column label='CHỨNG CHỈ' dataKey='SỐ CHỨNG CHỈ' width={130} />
             <Column
               width={120}
               label='Mã SMS'
@@ -157,13 +158,16 @@ export function ListSMSPage() {
               dataKey='TÊN THÁNH'
             />
             <Column
-              width={214}
+              width={250}
               flexGrow={1}
               flexShrink={1}
-              label='HỌ VÀ TÊN ĐỆM'
+              label='HỌ TÊN'
               dataKey='HỌ VÀ TÊN ĐỆM'
+              cellDataGetter={({ rowData }) =>
+                `${rowData['HỌ VÀ TÊN ĐỆM']} ${rowData['TÊN']}`
+              }
             />
-            <Column width={150} label='TÊN' dataKey='TÊN' className='pl-8' />
+            {/* <Column width={150} label='TÊN' dataKey='TÊN' className='pl-8' /> */}
             <Column
               width={102}
               flexGrow={1}
@@ -184,6 +188,7 @@ export function ListSMSPage() {
               dataKey='GIÁO HẠT'
               className='flex justify-center'
             />
+            <Column label='TUYÊN HỨA' dataKey='TUYÊN HỨA' width={120} />
           </Table>
         </div>
       )}

@@ -39,6 +39,7 @@ function FilterSMS(props) {
             placeholder='Tìm...'
             required
             onChange={(e) => changeSearchText(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && actionSearch()}
           />
         </div>
         <button
