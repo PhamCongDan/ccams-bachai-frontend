@@ -158,7 +158,7 @@ export function ListSMSPage() {
               dataKey='TÊN THÁNH'
             />
             <Column
-              width={250}
+              width={260}
               flexGrow={1}
               flexShrink={1}
               label='HỌ TÊN'

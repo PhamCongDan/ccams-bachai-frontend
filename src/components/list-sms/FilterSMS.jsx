@@ -23,6 +23,11 @@ const TYPE_ACTIONS = [
 function FilterSMS(props) {
   const { type, changeType, changeSearchText, actionSearch, searchText } =
     props;
+
+  const onKeyPress = (e) => {
+    if (!searchText || e.key !== 'Enter') return;
+    actionSearch();
+  };
   return (
     <>
       <div className='flex justify-center gap-2'>
@@ -39,7 +44,7 @@ function FilterSMS(props) {
             placeholder='Tìm...'
             required
             onChange={(e) => changeSearchText(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && actionSearch()}
+            onKeyDown={(e) => onKeyPress(e)}
           />
         </div>
         <button
