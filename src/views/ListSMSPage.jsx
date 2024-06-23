@@ -86,7 +86,7 @@ export function ListSMSPage() {
   );
   const loadingDom = (
     <div className='h-[calc(100vh_-_186px)]'>
-      <div className='h-full w-[1300px] max-w-full m-auto'>
+      <div className='h-full w-[1350px] max-w-full m-auto'>
         <div className='w-full h-full flex items-center justify-center relative'>
           <div className='absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20' />
           <div role='status' className=''>
@@ -139,7 +139,7 @@ export function ListSMSPage() {
         <div className='overflow-hidden'>
           <Table
             className='overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit h-[calc(100vh_-_186px)]'
-            width={1300}
+            width={1350}
             height={tableHeight}
             headerHeight={44}
             rowHeight={33}
@@ -158,7 +158,7 @@ export function ListSMSPage() {
               className='flex justify-center'
             />
             <Column label='SA MẠC' dataKey='SA MẠC' width={130} />
-            <Column label='CHỨNG CHỈ' dataKey='SỐ CHỨNG CHỈ' width={130} />
+            <Column label='CHỨNG CHỈ' dataKey='SỐ CHỨNG CHỈ' width={150} />
             <Column
               width={120}
               label='Mã SMS'
@@ -174,7 +174,7 @@ export function ListSMSPage() {
               dataKey='TÊN THÁNH'
             />
             <Column
-              width={260}
+              width={300}
               flexGrow={1}
               flexShrink={1}
               label='HỌ TÊN'
@@ -185,7 +185,7 @@ export function ListSMSPage() {
             />
             {/* <Column width={150} label='TÊN' dataKey='TÊN' className='pl-8' /> */}
             <Column
-              width={102}
+              width={115}
               flexGrow={1}
               label='NGÀY SINH'
               dataKey='NGÀY SINH'
@@ -204,8 +204,8 @@ export function ListSMSPage() {
               dataKey='GIÁO HẠT'
               className='flex justify-center'
             />
-            <Column label='TUYÊN HỨA' dataKey='TUYÊN HỨA' width={120} />
-            <Column label='TÌNH TRẠNG' dataKey='Tình Trạng' width={120} />
+            <Column label='TUYÊN HỨA' dataKey='TUYÊN HỨA' width={200} />
+            <Column label='TÌNH TRẠNG' dataKey='Tình Trạng' width={200} />
           </Table>
         </div>
       )}
