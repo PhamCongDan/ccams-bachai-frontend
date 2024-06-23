@@ -9,7 +9,7 @@ function HeaderSMS() {
         <div className='flex items-center'>
           <img alt='' src={logo} width={48} height={48} className='' />
           <h2 className='pl-2 font-bold text-base lg:text-xl uppercase'>
-            tra cứu thông tin sa mạc sinh giáo phận Xuân Lộc
+            Tra cứu thông tin sa mạc sinh giáo phận Xuân Lộc
           </h2>
         </div>
       </header>
