@@ -86,7 +86,7 @@ export function ListSMSPage() {
   );
   const loadingDom = (
     <div className='h-[calc(100vh_-_186px)]'>
-      <div className='h-full w-[1350px] max-w-full m-auto'>
+      <div className='h-full w-[1645px] max-w-full m-auto'>
         <div className='w-full h-full flex items-center justify-center relative'>
           <div className='absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20' />
           <div role='status' className=''>
@@ -116,7 +116,8 @@ export function ListSMSPage() {
     setTableHeight(getTableHeight);
 
     const onResize = debounce(() => {
-      setTableHeight(getTableHeight);
+      const height = window.innerHeight - 188;
+      setTableHeight(height);
     }, 500);
     window.addEventListener('resize', onResize, true);
     return () => {
@@ -139,7 +140,7 @@ export function ListSMSPage() {
         <div className='overflow-hidden'>
           <Table
             className='overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit h-[calc(100vh_-_186px)]'
-            width={1350}
+            width={1645}
             height={tableHeight}
             headerHeight={44}
             rowHeight={33}
@@ -174,7 +175,7 @@ export function ListSMSPage() {
               dataKey='TÊN THÁNH'
             />
             <Column
-              width={300}
+              width={250}
               flexGrow={1}
               flexShrink={1}
               label='HỌ TÊN'
