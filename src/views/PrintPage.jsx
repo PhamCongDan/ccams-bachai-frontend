@@ -15,6 +15,7 @@ export function PrintPage() {
         <div className='no-print flex justify-between items-center'>
           <button onClick={() => navigate('/search')}>{'< Back'}</button>
           <button
+            aria-label='print'
             className='btn-primary--contained'
             onClick={() => window.print()}>
             <BaseIcon>

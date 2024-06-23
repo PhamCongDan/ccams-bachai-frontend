@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Column } from 'react-virtualized/dist/es/Table';
+import { debounce } from 'debounce';
 import FilterSMS from '../components/list-sms/FilterSMS';
 
 const API_URL_LIST = ['0vennslltfu2q', 'bp2pfsowh7nom', '7h3rsv9amdal3'];
@@ -10,6 +11,7 @@ export function ListSMSPage() {
   const [type, setType] = useState('name');
   const [isLoading, setIsLoading] = useState(false);
   const [lstData, setLstData] = useState([]);
+  const [tableHeight, setTableHeight] = useState(0);
 
   const getUrlApi = () => {
     const today = new Date().getDate();
@@ -83,8 +85,8 @@ export function ListSMSPage() {
     </div>
   );
   const loadingDom = (
-    <div className='p-6'>
-      <div className='h-[500px] w-[1532px] max-w-full m-auto'>
+    <div className='h-[calc(100vh_-_186px)]'>
+      <div className='h-full w-[1300px] max-w-full m-auto'>
         <div className='w-full h-full flex items-center justify-center relative'>
           <div className='absolute top-0 left-0 right-0 bottom-0 bg-black opacity-20' />
           <div role='status' className=''>
@@ -108,8 +110,22 @@ export function ListSMSPage() {
       </div>
     </div>
   );
+
+  useEffect(() => {
+    const getTableHeight = window.innerHeight - 188;
+    setTableHeight(getTableHeight);
+
+    const onResize = debounce(() => {
+      setTableHeight(getTableHeight);
+    }, 500);
+    window.addEventListener('resize', onResize, true);
+    return () => {
+      window.removeEventListener('resize', onResize, true);
+    };
+  }, []);
+
   return (
-    <div className='m-auto mt-2'>
+    <div className='m-auto mt-2 p-4'>
       <FilterSMS
         type={type}
         searchText={searchText}
@@ -122,9 +138,9 @@ export function ListSMSPage() {
       ) : (
         <div className='overflow-hidden'>
           <Table
-            className='overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit'
+            className='overflow-auto relative text-md text-left text-gray-500 z-0 border m-auto w-auto max-w-fit h-[calc(100vh_-_186px)]'
             width={1300}
-            height={500}
+            height={tableHeight}
             headerHeight={44}
             rowHeight={33}
             rowCount={lstData.length}
@@ -189,6 +205,7 @@ export function ListSMSPage() {
               className='flex justify-center'
             />
             <Column label='TUYÊN HỨA' dataKey='TUYÊN HỨA' width={120} />
+            <Column label='TÌNH TRẠNG' dataKey='Tình Trạng' width={120} />
           </Table>
         </div>
       )}
